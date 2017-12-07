@@ -132,8 +132,6 @@ class AccountApi {
                     username: targetUserParams.username
             ]
         }
-        println "targetUserParams====${targetUserParams}"
-        println "params====${params}"
         RsqRestUtil.postJSON("${baseUrl}${path}multiuser/switchUser"){
             header 'X-Requested-With', 'XMLHttpRequest'
             fields params
@@ -218,5 +216,29 @@ class AccountApi {
         checkLogout(logoutResp)
 
         resp
+    }
+
+    /**
+     * 根据team的名字获取相对应的user
+     * @param teamMap
+     * @return
+     */
+    private static Map fetchSiblingUserByTeamName(Map teamMap){
+        RsqRestResponse resp = fetchUserSiblings()
+        List userList = resp.jsonMap.list
+        Map anotherUser = (Map)userList.find {it ->
+            it.teamName == teamMap.name
+        }
+        return anotherUser
+    }
+
+    /**
+     * 切换为team对应的user
+     * @return
+     */
+    public static RsqRestResponse switchUserByTeamName(Map teamMap){
+        Map another = fetchSiblingUserByTeamName(teamMap)
+        setMainUser([id: another.userId])
+        return switchUser([id: another.userId])
     }
 }

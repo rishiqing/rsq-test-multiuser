@@ -93,19 +93,23 @@ api测试不调用web driver，直接通过封装过的[Unirest库](http://unire
 ##### IDEA环境下
 - 由于功能测试可以不依赖grails application context，那么就可以直接使用IDEA集成的jUnit runner来运行api test的测试用例
 - 可以直接在Run/Debug Configuration中配置jUnit的Runner，或者使用`Ctrl + Shift + F10`快捷键运行测试用例
-- 如果需要配置不同环境，可以在Run/Debug Configuration的VM options中配置环境参数，例如
+- 如果需要配置不同环境，可以在Run/Debug Configuration的Environment variable中配置环境参数，例如
 
-      -Dgeb.env=prod
+    `RSQ_TEST_ENV=local`
 
 ##### grails环境下
-命令行运行
+1. 首先配置环境变量：
+    `RSQ_TEST_ENV=local`
+    
+- 指定运行测试时的环境参数，默认为local，需要与FunctionalTestConfig.groovy中的环境参数一致
 
-    grails test-app -Dgeb.env=local --echoOut functional: com.rishiqing.test.functional.rest.**.*
+2. 命令行运行
+
+    `grails test-app --echoOut functional: com.rishiqing.test.functional.rest.**.*`
 
 进行api功能测试，参数说明：
 
 - `--echoOut`：输出测试用例中的打印结果
-- `-Dgev.env`：指定运行测试时的环境参数，默认为local，需要与FunctionalTestConfig.groovy中的环境参数一致
 - `functional:`：运行功能测试
 - `com.rishiqing.test.functional.rest.**.*`：运行`com.rishiqing.test.functional.rest`包及其子包中的所有测试用例
 

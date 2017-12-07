@@ -18,7 +18,6 @@ import spock.lang.Unroll
  * Created by  on 2017/9/6.Wallace
  */
 @Stepwise
-@Ignore
 /**
  * 不使用switchUser做切换
  */
@@ -88,44 +87,20 @@ class TeamSwitchUserApiSpec extends BaseApi {
     def "teamUser1 可以在 team1ForCreate 和 team2ForCreate 之间进行切换"(){
         given:
         RsqRestResponse resp
-        Map switchUser1
-        Map switchUser2
-        Map mainUser
-        Map loginUser
 
         when:
         resp = AccountApi.loginAndCheck(suiteEnv.teamUser1 as Map)
-        resp = AccountApi.fetchUserSiblings()
-        List userList = resp.jsonMap.list
-        switchUser1 = (Map)userList.find {it -> it.teamName == suiteEnv.team1ForCreate.name}
-        switchUser2 = (Map)userList.find {it -> it.teamName == suiteEnv.team2ForCreate.name}
-        resp = AccountApi.getMainUser()
-        mainUser = resp.jsonMap
+        resp = AccountApi.switchUserByTeamName(suiteEnv.team1ForCreate as Map)
         resp = AccountApi.fetchLoginInfo()
-        loginUser = resp.jsonMap
-//        println "switchUser1: ${switchUser1}"
-//        println "switchUser2: ${switchUser2}"
-//        println "mainUser: ${mainUser}"
-//        println "loginUser: ${loginUser}"
 
         then: '当前登录用户为主用户，主用户为teamUser1，即team1ForCreate'
-        loginUser.id == mainUser.userId
-        mainUser.userId == switchUser1.userId
+        AccountApi.checkFetchLoginInfo(resp, [team: suiteEnv.team1ForCreate] as Map)
 
         when:
-        resp = AccountApi.switchUser([id: switchUser2.userId])
-        resp = AccountApi.fetchUserSiblings()
-        userList = resp.jsonMap.list
-        switchUser1 = (Map)userList.find {it -> it.teamName == suiteEnv.team1ForCreate.name}
-        switchUser2 = (Map)userList.find {it -> it.teamName == suiteEnv.team2ForCreate.name}
-        resp = AccountApi.getMainUser()
-        mainUser = resp.jsonMap
+        resp = AccountApi.switchUserByTeamName(suiteEnv.team2ForCreate as Map)
         resp = AccountApi.fetchLoginInfo()
-        loginUser = resp.jsonMap
 
-        then: '当前登录用户为switchUser2, 主用户不是当前登录用户，switchUser1'
-        loginUser.id != mainUser.userId
-        loginUser.id == switchUser2.userId
-        mainUser.userId == switchUser1.userId
+        then: '当前主用户为teamUser2, 切换用户为team2ForCreate'
+        AccountApi.checkFetchLoginInfo(resp, [team: suiteEnv.team2ForCreate] as Map)
     }
 }

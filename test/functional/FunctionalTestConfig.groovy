@@ -29,6 +29,7 @@ _betaPropertiesFile.withInputStream {
 String _emailDomain = 'rsqtest.com'
 String _emailDomainForTestTeamJoin = 'rsqtestteamjoin.com'
 String _emailDomainForTestTeamCreate = 'rsqtestteamcreate.com'
+String _emailDomainForTestTeamQuit = 'rsqtestteamquit.com'
 String _emailDomainForTestTeamJoinMultiuser = 'rsqtestteamjoinmulti.com'
 String _emailDomainForTestTeamMainUser = 'rsqtestteammainuser.com'
 String _emailDomainForTestTeamSwitchUser = 'rsqtestteamswitchuser.com'
@@ -37,6 +38,8 @@ Long _phoneBaseForTestTeamCreate = 13810001000
 Long _phoneBaseForTestTeamJoinMultiuser = 13810002000
 Long _phoneBaseForTestTeamMainUser = 13810003000
 Long _phoneBaseForTestTeamSwitchUser = 13810004000
+Long _phoneBaseForTestTeamQuit = 13810005000
+
 
 global {
     testEmailDomain = _emailDomain
@@ -104,6 +107,15 @@ environments {
                 team6ForCreate = [name: '自动化测试团队teamCreate-F', phoneNumber: "${_phoneBaseForTestTeamCreate + 6}"]
                 team7ForCreate = [name: '自动化测试团队teamCreate-G', phoneNumber: "${_phoneBaseForTestTeamCreate + 7}"]
                 team8ForCreate = [name: '自动化测试团队teamCreate-H', phoneNumber: "${_phoneBaseForTestTeamCreate + 8}"]
+            }
+            teamQuit {
+                emailDomain = _emailDomainForTestTeamQuit
+                phoneBase = _phoneBaseForTestTeamQuit
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试2', password: 'wsxCDE']
+                team1ForCreate = [name: '自动化测试团队teamQuite-A', phoneNumber: "${_phoneBaseForTestTeamQuit + 1}"]
+                team2ForCreate = [name: '自动化测试团队teamQuite-B', phoneNumber: "${_phoneBaseForTestTeamQuit + 2}"]
+
             }
             teamJoinMultiUser {
                 emailDomain = _emailDomainForTestTeamJoinMultiuser
@@ -465,6 +477,15 @@ environments {
                 team6ForCreate = [name: '自动化测试团队teamCreate-F', phoneNumber: "${_phoneBaseForTestTeamCreate + 6}"]
                 team7ForCreate = [name: '自动化测试团队teamCreate-G', phoneNumber: "${_phoneBaseForTestTeamCreate + 7}"]
                 team8ForCreate = [name: '自动化测试团队teamCreate-H', phoneNumber: "${_phoneBaseForTestTeamCreate + 8}"]
+            }
+            teamQuit {
+                emailDomain = _emailDomainForTestTeamQuit
+                phoneBase = _phoneBaseForTestTeamQuit
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试2', password: 'wsxCDE']
+                team1ForCreate = [name: '自动化测试团队teamQuite-A', phoneNumber: "${_phoneBaseForTestTeamQuit + 1}"]
+                team2ForCreate = [name: '自动化测试团队teamQuite-B', phoneNumber: "${_phoneBaseForTestTeamQuit + 2}"]
+
             }
             teamJoinMultiUser {
                 emailDomain = _emailDomainForTestTeamJoinMultiuser
