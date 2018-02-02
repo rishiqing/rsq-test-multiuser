@@ -29,17 +29,16 @@ _betaPropertiesFile.withInputStream {
 String _emailDomain = 'rsqtest.com'
 String _emailDomainForTestTeamJoin = 'rsqtestteamjoin.com'
 String _emailDomainForTestTeamCreate = 'rsqtestteamcreate.com'
-String _emailDomainForTestTeamQuit = 'rsqtestteamquit.com'
 String _emailDomainForTestTeamJoinMultiuser = 'rsqtestteamjoinmulti.com'
 String _emailDomainForTestTeamMainUser = 'rsqtestteammainuser.com'
 String _emailDomainForTestTeamSwitchUser = 'rsqtestteamswitchuser.com'
+String _emailDomainForTestTeamUserData = 'rsqtestteamuserdata.com'
 Long _phoneBaseForTestTeamJoin = 13810000000
 Long _phoneBaseForTestTeamCreate = 13810001000
 Long _phoneBaseForTestTeamJoinMultiuser = 13810002000
 Long _phoneBaseForTestTeamMainUser = 13810003000
 Long _phoneBaseForTestTeamSwitchUser = 13810004000
-Long _phoneBaseForTestTeamQuit = 13810005000
-
+Long _phoneBaseForTestTeamUserData = 13810005000
 
 global {
     testEmailDomain = _emailDomain
@@ -107,15 +106,6 @@ environments {
                 team6ForCreate = [name: '自动化测试团队teamCreate-F', phoneNumber: "${_phoneBaseForTestTeamCreate + 6}"]
                 team7ForCreate = [name: '自动化测试团队teamCreate-G', phoneNumber: "${_phoneBaseForTestTeamCreate + 7}"]
                 team8ForCreate = [name: '自动化测试团队teamCreate-H', phoneNumber: "${_phoneBaseForTestTeamCreate + 8}"]
-            }
-            teamQuit {
-                emailDomain = _emailDomainForTestTeamQuit
-                phoneBase = _phoneBaseForTestTeamQuit
-                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试1', password: 'qazXSW']
-                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试2', password: 'wsxCDE']
-                team1ForCreate = [name: '自动化测试团队teamQuite-A', phoneNumber: "${_phoneBaseForTestTeamQuit + 1}"]
-                team2ForCreate = [name: '自动化测试团队teamQuite-B', phoneNumber: "${_phoneBaseForTestTeamQuit + 2}"]
-
             }
             teamJoinMultiUser {
                 emailDomain = _emailDomainForTestTeamJoinMultiuser
@@ -233,6 +223,25 @@ environments {
                 teamForCreate = [name: "自动化测试团队A", phoneNumber: '13810360752']
                 //  userForInviteTeam所创建的团队
                 teamForAnother = [name: "自动化测试团队C", phoneNumber: '13810360753']
+            }
+            teamUserData {
+                emailDomain = _emailDomainForTestTeamUserData
+                phoneBase = _phoneBaseForTestTeamUserData
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试2', password: 'wsxCDE']
+                teamUser3 = [username: "team_user_3@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试3', password: 'edcVFR']
+                teamUser4 = [username: "team_user_4@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试4', password: 'rfvBGT']
+                teamUser5 = [username: "team_user_5@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试5', password: 'tgbNHY']
+                teamUser6 = [username: "team_user_6@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试6', password: 'yhnMJU']
+                teamUser7 = [username: "team_user_7@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试7', password: 'yhnMJU']
+                team1ForCreate = [name: '自动化测试团队teamUserData-A', phoneNumber: "${_phoneBaseForTestTeamUserData + 1}"]
+                team2ForCreate = [name: '自动化测试团队teamUserData-B', phoneNumber: "${_phoneBaseForTestTeamUserData + 2}"]
+                team3ForCreate = [name: '自动化测试团队teamUserData-C', phoneNumber: "${_phoneBaseForTestTeamUserData + 3}"]
+                team4ForCreate = [name: '自动化测试团队teamUserData-D', phoneNumber: "${_phoneBaseForTestTeamUserData + 4}"]
+                team5ForCreate = [name: '自动化测试团队teamUserData-E', phoneNumber: "${_phoneBaseForTestTeamUserData + 5}"]
+                team6ForCreate = [name: '自动化测试团队teamUserData-F', phoneNumber: "${_phoneBaseForTestTeamUserData + 6}"]
+                team7ForCreate = [name: '自动化测试团队teamUserData-G', phoneNumber: "${_phoneBaseForTestTeamUserData + 7}"]
+                team8ForCreate = [name: '自动化测试团队teamUserData-H', phoneNumber: "${_phoneBaseForTestTeamUserData + 8}"]
             }
         }
     }
@@ -419,7 +428,7 @@ environments {
     }
 
     beta {
-        baseUrl = "http://beta.rishiqing.com/"
+        baseUrl = "https://beta.rishiqing.com/"
         path = "task/"
         dataSource {
             url = "${_betaProps.url}"
@@ -477,15 +486,6 @@ environments {
                 team6ForCreate = [name: '自动化测试团队teamCreate-F', phoneNumber: "${_phoneBaseForTestTeamCreate + 6}"]
                 team7ForCreate = [name: '自动化测试团队teamCreate-G', phoneNumber: "${_phoneBaseForTestTeamCreate + 7}"]
                 team8ForCreate = [name: '自动化测试团队teamCreate-H', phoneNumber: "${_phoneBaseForTestTeamCreate + 8}"]
-            }
-            teamQuit {
-                emailDomain = _emailDomainForTestTeamQuit
-                phoneBase = _phoneBaseForTestTeamQuit
-                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试1', password: 'qazXSW']
-                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamQuit}", realName: 'quitTeam自动化测试2', password: 'wsxCDE']
-                team1ForCreate = [name: '自动化测试团队teamQuite-A', phoneNumber: "${_phoneBaseForTestTeamQuit + 1}"]
-                team2ForCreate = [name: '自动化测试团队teamQuite-B', phoneNumber: "${_phoneBaseForTestTeamQuit + 2}"]
-
             }
             teamJoinMultiUser {
                 emailDomain = _emailDomainForTestTeamJoinMultiuser
@@ -603,6 +603,25 @@ environments {
                 teamForCreate = [name: "自动化测试团队A", phoneNumber: '13810360752']
                 //  userForInviteTeam所创建的团队
                 teamForAnother = [name: "自动化测试团队C", phoneNumber: '13810360753']
+            }
+            teamUserData {
+                emailDomain = _emailDomainForTestTeamUserData
+                phoneBase = _phoneBaseForTestTeamUserData
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试2', password: 'wsxCDE']
+                teamUser3 = [username: "team_user_3@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试3', password: 'edcVFR']
+                teamUser4 = [username: "team_user_4@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试4', password: 'rfvBGT']
+                teamUser5 = [username: "team_user_5@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试5', password: 'tgbNHY']
+                teamUser6 = [username: "team_user_6@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试6', password: 'yhnMJU']
+                teamUser7 = [username: "team_user_7@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试7', password: 'yhnMJU']
+                team1ForCreate = [name: '自动化测试团队teamUserData-A', phoneNumber: "${_phoneBaseForTestTeamUserData + 1}"]
+                team2ForCreate = [name: '自动化测试团队teamUserData-B', phoneNumber: "${_phoneBaseForTestTeamUserData + 2}"]
+                team3ForCreate = [name: '自动化测试团队teamUserData-C', phoneNumber: "${_phoneBaseForTestTeamUserData + 3}"]
+                team4ForCreate = [name: '自动化测试团队teamUserData-D', phoneNumber: "${_phoneBaseForTestTeamUserData + 4}"]
+                team5ForCreate = [name: '自动化测试团队teamUserData-E', phoneNumber: "${_phoneBaseForTestTeamUserData + 5}"]
+                team6ForCreate = [name: '自动化测试团队teamUserData-F', phoneNumber: "${_phoneBaseForTestTeamUserData + 6}"]
+                team7ForCreate = [name: '自动化测试团队teamUserData-G', phoneNumber: "${_phoneBaseForTestTeamUserData + 7}"]
+                team8ForCreate = [name: '自动化测试团队teamUserData-H', phoneNumber: "${_phoneBaseForTestTeamUserData + 8}"]
             }
         }
     }
