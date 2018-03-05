@@ -114,6 +114,8 @@ api测试不调用web driver，直接通过封装过的[Unirest库](http://unire
 - `com.rishiqing.test.functional.rest.**.*`：运行`com.rishiqing.test.functional.rest`包及其子包中的所有测试用例
 
 ### web functional test（web端功能测试）
+**注意：已经过时，可能不能正常使用**  
+
 调用web driver操作浏览器，执行浏览器环境下的功能测试
 
 #### 新增依赖：

@@ -14,5 +14,6 @@ class ConfigUtil {
         println "rishiqing test stage environment(should not be NULL): ${System.getenv('RSQ_TEST_ENV')}"
         String env = System.getenv("RSQ_TEST_ENV") ?: "local"
         config = new ConfigSlurper(env).parse(new File(path).toURI().toURL())
+        println "dataSource is ${config.dataSource.url}"
     }
 }

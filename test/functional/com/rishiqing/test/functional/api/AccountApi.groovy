@@ -80,6 +80,9 @@ class AccountApi {
         resp
     }
     public static void checkRegister(RsqRestResponse resp){
+        if(resp.status != 200){
+            println resp.body
+        }
         assert resp.status == 200
     }
 
