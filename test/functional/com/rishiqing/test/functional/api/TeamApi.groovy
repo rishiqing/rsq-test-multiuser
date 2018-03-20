@@ -23,6 +23,15 @@ class TeamApi {
                 phoneNumber: teamParams.phoneNumber,
                 validate: '1577'
         ]
+        if(teamParams.region){
+            params.region = teamParams.region
+        }
+        if(teamParams.industry){
+            params.industry = teamParams.industry
+        }
+        if(teamParams.size){
+            params.size = teamParams.size
+        }
         RsqRestUtil.post("${baseUrl}${path}team/createTeam"){
             header 'X-Requested-With', 'XMLHttpRequest'
             fields params
@@ -189,6 +198,32 @@ class TeamApi {
         assert resp.status == 200
     }
 
+    public static final RsqRestResponse setTeamAdmin(Map user, Boolean isAdmin){
+        String id = user.userId?:user.id
+        if(isAdmin){
+            return RsqRestUtil.put("${baseUrl}${path}api/teamAdmin/" + id){
+                header 'X-Requested-With', 'XMLHttpRequest'
+            }
+        }else{
+            return RsqRestUtil.delete("${baseUrl}${path}api/teamAdmin/" + id){
+                header 'X-Requested-With', 'XMLHttpRequest'
+            }
+        }
+    }
+    public static final void checkSetTeamAdmin(RsqRestResponse resp){
+        assert resp.status == 200
+    }
+
+    public static final RsqRestResponse fetchUserDetail(Map user){
+        Map params = [
+                userId: user.userId?:user.id
+        ]
+        return RsqRestUtil.get("${baseUrl}${path}multiuser/fetchUserDetail"){
+            header 'X-Requested-With', 'XMLHttpRequest'
+            queryParams params
+        }
+    }
+
     /**
      * 用来做通用的http 200 返回检查
      * @param resp
@@ -309,6 +344,29 @@ class TeamApi {
         AccountApi.checkLogin(resp)
         //  获取兄弟用户数
         resp = quitTeam()
+        //  注销
+        def logoutResp = AccountApi.logout()
+        AccountApi.checkLogout(logoutResp)
+
+        resp
+    }
+
+    public static final RsqRestResponse loginAndSetTeamAdmin(Map teamOwner, Map teamAdmin, Boolean isAdmin){
+        RsqRestResponse resp = AccountApi.login(teamOwner)
+        AccountApi.checkLogout(resp)
+
+        resp = setTeamAdmin(teamAdmin, isAdmin)
+        //  注销
+        def logoutResp = AccountApi.logout()
+        AccountApi.checkLogout(logoutResp)
+
+        resp
+    }
+    public static final RsqRestResponse loginAndFetchUserDetail(Map loginUser, Map user){
+        RsqRestResponse resp = AccountApi.login(loginUser)
+        AccountApi.checkLogout(resp)
+
+        resp = fetchUserDetail(user)
         //  注销
         def logoutResp = AccountApi.logout()
         AccountApi.checkLogout(logoutResp)

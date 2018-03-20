@@ -226,7 +226,7 @@ class AccountApi {
      * @param teamMap
      * @return
      */
-    private static Map fetchSiblingUserByTeamName(Map teamMap){
+    public static Map fetchSiblingUserByTeamName(Map teamMap){
         RsqRestResponse resp = fetchUserSiblings()
         List userList = resp.jsonMap.list
         Map anotherUser = (Map)userList.find {it ->

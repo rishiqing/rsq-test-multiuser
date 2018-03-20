@@ -33,12 +33,14 @@ String _emailDomainForTestTeamJoinMultiuser = 'rsqtestteamjoinmulti.com'
 String _emailDomainForTestTeamMainUser = 'rsqtestteammainuser.com'
 String _emailDomainForTestTeamSwitchUser = 'rsqtestteamswitchuser.com'
 String _emailDomainForTestTeamUserData = 'rsqtestteamuserdata.com'
+String _emailDomainForTestTeamFetchDetailData = 'rsqtestteamfetchdetaildata.com'
 Long _phoneBaseForTestTeamJoin = 13810000000
 Long _phoneBaseForTestTeamCreate = 13810001000
 Long _phoneBaseForTestTeamJoinMultiuser = 13810002000
 Long _phoneBaseForTestTeamMainUser = 13810003000
 Long _phoneBaseForTestTeamSwitchUser = 13810004000
 Long _phoneBaseForTestTeamUserData = 13810005000
+Long _phoneBaseForTestTeamFetchDetailData = 13810006000
 
 global {
     testEmailDomain = _emailDomain
@@ -243,6 +245,17 @@ environments {
                 team7ForCreate = [name: '自动化测试团队teamUserData-G', phoneNumber: "${_phoneBaseForTestTeamUserData + 7}"]
                 team8ForCreate = [name: '自动化测试团队teamUserData-H', phoneNumber: "${_phoneBaseForTestTeamUserData + 8}"]
             }
+            teamFetchDetailData {
+                emailDomain = _emailDomainForTestTeamFetchDetailData
+                phoneBase = _phoneBaseForTestTeamFetchDetailData
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试2', password: 'wsxCDE']
+                teamUser3 = [username: "team_user_3@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试3', password: 'edcVFR']
+                teamUser4 = [username: "team_user_4@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试4', password: 'rfvBGT']
+                team1ForCreate = [name: '自动化测试团队teamUserData-A', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 1}", region: '辽宁-沈阳-铁西区-6-1-5', industry: '8', size: '4']
+                team2ForCreate = [name: '自动化测试团队teamUserData-B', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 2}", region: '广东-广州-南沙区-2-1-9', industry: '7', size: '3']
+                team3ForCreate = [name: '自动化测试团队teamUserData-C', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 3}", region: '贵州-贵阳-乌当区-24-1-4', industry: '5', size: '2']
+            }
         }
     }
 
@@ -423,6 +436,36 @@ environments {
                 teamForCreate = [name: "自动化测试团队A", phoneNumber: '13810360752']
                 //  userForInviteTeam所创建的团队
                 teamForAnother = [name: "自动化测试团队C", phoneNumber: '13810360753']
+            }
+            teamUserData {
+                emailDomain = _emailDomainForTestTeamUserData
+                phoneBase = _phoneBaseForTestTeamUserData
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试2', password: 'wsxCDE']
+                teamUser3 = [username: "team_user_3@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试3', password: 'edcVFR']
+                teamUser4 = [username: "team_user_4@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试4', password: 'rfvBGT']
+                teamUser5 = [username: "team_user_5@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试5', password: 'tgbNHY']
+                teamUser6 = [username: "team_user_6@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试6', password: 'yhnMJU']
+                teamUser7 = [username: "team_user_7@${_emailDomainForTestTeamUserData}", realName: 'teamUserData自动化测试7', password: 'yhnMJU']
+                team1ForCreate = [name: '自动化测试团队teamUserData-A', phoneNumber: "${_phoneBaseForTestTeamUserData + 1}"]
+                team2ForCreate = [name: '自动化测试团队teamUserData-B', phoneNumber: "${_phoneBaseForTestTeamUserData + 2}"]
+                team3ForCreate = [name: '自动化测试团队teamUserData-C', phoneNumber: "${_phoneBaseForTestTeamUserData + 3}"]
+                team4ForCreate = [name: '自动化测试团队teamUserData-D', phoneNumber: "${_phoneBaseForTestTeamUserData + 4}"]
+                team5ForCreate = [name: '自动化测试团队teamUserData-E', phoneNumber: "${_phoneBaseForTestTeamUserData + 5}"]
+                team6ForCreate = [name: '自动化测试团队teamUserData-F', phoneNumber: "${_phoneBaseForTestTeamUserData + 6}"]
+                team7ForCreate = [name: '自动化测试团队teamUserData-G', phoneNumber: "${_phoneBaseForTestTeamUserData + 7}"]
+                team8ForCreate = [name: '自动化测试团队teamUserData-H', phoneNumber: "${_phoneBaseForTestTeamUserData + 8}"]
+            }
+            teamFetchDetailData {
+                emailDomain = _emailDomainForTestTeamFetchDetailData
+                phoneBase = _phoneBaseForTestTeamFetchDetailData
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试2', password: 'wsxCDE']
+                teamUser3 = [username: "team_user_3@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试3', password: 'edcVFR']
+                teamUser4 = [username: "team_user_4@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试4', password: 'rfvBGT']
+                team1ForCreate = [name: '自动化测试团队teamUserData-A', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 1}", region: '辽宁-沈阳-铁西区-6-1-5', industry: '8', size: '4']
+                team2ForCreate = [name: '自动化测试团队teamUserData-B', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 2}", region: '广东-广州-南沙区-2-1-9', industry: '7', size: '3']
+                team3ForCreate = [name: '自动化测试团队teamUserData-C', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 3}", region: '贵州-贵阳-乌当区-24-1-4', industry: '5', size: '2']
             }
         }
     }
@@ -623,6 +666,17 @@ environments {
                 team7ForCreate = [name: '自动化测试团队teamUserData-G', phoneNumber: "${_phoneBaseForTestTeamUserData + 7}"]
                 team8ForCreate = [name: '自动化测试团队teamUserData-H', phoneNumber: "${_phoneBaseForTestTeamUserData + 8}"]
             }
+            teamFetchDetailData {
+                emailDomain = _emailDomainForTestTeamFetchDetailData
+                phoneBase = _phoneBaseForTestTeamFetchDetailData
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试2', password: 'wsxCDE']
+                teamUser3 = [username: "team_user_3@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试3', password: 'edcVFR']
+                teamUser4 = [username: "team_user_4@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试4', password: 'rfvBGT']
+                team1ForCreate = [name: '自动化测试团队teamUserData-A', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 1}", region: '辽宁-沈阳-铁西区-6-1-5', industry: '8', size: '4']
+                team2ForCreate = [name: '自动化测试团队teamUserData-B', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 2}", region: '广东-广州-南沙区-2-1-9', industry: '7', size: '3']
+                team3ForCreate = [name: '自动化测试团队teamUserData-C', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 3}", region: '贵州-贵阳-乌当区-24-1-4', industry: '5', size: '2']
+            }
         }
     }
 
@@ -821,6 +875,17 @@ environments {
                 team6ForCreate = [name: '自动化测试团队teamUserData-F', phoneNumber: "${_phoneBaseForTestTeamUserData + 6}"]
                 team7ForCreate = [name: '自动化测试团队teamUserData-G', phoneNumber: "${_phoneBaseForTestTeamUserData + 7}"]
                 team8ForCreate = [name: '自动化测试团队teamUserData-H', phoneNumber: "${_phoneBaseForTestTeamUserData + 8}"]
+            }
+            teamFetchDetailData {
+                emailDomain = _emailDomainForTestTeamFetchDetailData
+                phoneBase = _phoneBaseForTestTeamFetchDetailData
+                teamUser1 = [username: "team_user_1@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试1', password: 'qazXSW']
+                teamUser2 = [username: "team_user_2@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试2', password: 'wsxCDE']
+                teamUser3 = [username: "team_user_3@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试3', password: 'edcVFR']
+                teamUser4 = [username: "team_user_4@${_emailDomainForTestTeamFetchDetailData}", realName: 'teamUserData自动化测试4', password: 'rfvBGT']
+                team1ForCreate = [name: '自动化测试团队teamUserData-A', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 1}", region: '辽宁-沈阳-铁西区-6-1-5', industry: '8', size: '4']
+                team2ForCreate = [name: '自动化测试团队teamUserData-B', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 2}", region: '广东-广州-南沙区-2-1-9', industry: '7', size: '3']
+                team3ForCreate = [name: '自动化测试团队teamUserData-C', phoneNumber: "${_phoneBaseForTestTeamFetchDetailData + 3}", region: '贵州-贵阳-乌当区-24-1-4', industry: '5', size: '2']
             }
         }
     }
